@@ -25,4 +25,10 @@ data = datetime.datetime(2021, 12, 1)
 print(data.date() == teraz.date())
 
 
-print(f"Data dzisiejsza: {teraz}")
+print(f"Data dzisiejsza: {teraz}\n")
+
+filename = os.path.join('/home/pi/Keys', 'owm.txt')
+
+API_KEY = ""
+with open(filename) as f:
+    API_KEY = f.read()
