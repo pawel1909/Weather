@@ -50,5 +50,5 @@ for item in weather:
     objList.append(obj)
 
 
-# for i in objList:
-#     print(i)
+for i in objList:
+    print(i)
