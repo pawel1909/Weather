@@ -1,5 +1,7 @@
 from pyowm import OWM
 from pyowm.utils.config import get_default_config
+import sys
+import os
 
 
 filename = os.path.join('/home/pi/Keys', 'owm.txt')
