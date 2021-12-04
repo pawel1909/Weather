@@ -27,13 +27,12 @@ listaSwiat_Kwiecien = {
 listaSwiat_Maj = {
     1: "Pierszy Maja, Wolne!!!",
     2: "Dzień Flagi",
-    3: "Dzieci maja Dalej wolne!!!",
-    26: "Dzień Mamy", # to coś zrób na cały dzień jakieś
+    3: "Czeci Maj",
+    26: "Dzień Mamy" # to coś zrób na cały dzień jakieś
 }
 
 listaSwiat_Czerwiec = {
     1: "Dzień Dziecka = -300zł na koncie",
-    4: "Dzień wolności i praw obywatelskich(W Polsce) xD",
     21: "Pierwszy Dzień Lata",
     23: "Dzień Ojca", # Tutaj też daj to co w dzień matki
     29: "Imieniny Piotra i Pawła"
