@@ -9,6 +9,7 @@ listaSwiat_Styczen = {
 }
 
 listaSwiat_Luty = {
+    10: "Imieniny Elwiry",
     14: "Walentynki <3"
 }
 
