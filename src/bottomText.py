@@ -83,3 +83,5 @@ def leftImg(currentWeather, w = 180, h = 300):
     
 
     return img
+
+### END OF FILE ###

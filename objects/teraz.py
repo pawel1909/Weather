@@ -41,3 +41,4 @@ class NowWeather():
     def currentWeather(self):
        return self.__Current
 
+### END OF FILE ###

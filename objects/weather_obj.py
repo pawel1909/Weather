@@ -103,3 +103,5 @@ class Weather_obj():
         
 
 # endregion obiektPogody
+
+### END OF FILE ###

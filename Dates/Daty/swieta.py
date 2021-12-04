@@ -1,4 +1,5 @@
 # Lista świąt kalendarzowych, które znam i pamiętam [dzień: int, miesiac: int]
+# Poważnie nie wiem czy to jest napisane zgodnie ze sztuką pisania xD
 listaSwiat_Styczen = {
     1: "Nowy Rok",
     6: "Trzech Króli",
@@ -69,3 +70,5 @@ listaSwiat_Grudzien = {
     25: "Prezenty!!",
     31: "Urodziny Elwiry"
 }
+
+### END OF FILE ###

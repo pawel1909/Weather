@@ -15,3 +15,5 @@ config_dict["language"] = 'pl'
 
 owm = OWM(API_KEY)
 mgr = owm.weather_manager()
+
+### END OF FILE ###

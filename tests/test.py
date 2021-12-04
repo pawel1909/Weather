@@ -1,3 +1,6 @@
+# Plik używany do czegoś innego, niż sugeruje nazwa
+# Mój własny plik sprawdzania konfiguracji
+
 from PIL import ImageDraw, ImageFont, Image
 import sys
 import os
@@ -32,3 +35,5 @@ filename = os.path.join('/home/pi/Keys', 'owm.txt')
 API_KEY = ""
 with open(filename) as f:
     API_KEY = f.read()
+
+### END OF FILE ###
