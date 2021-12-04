@@ -66,6 +66,7 @@ listaSwiat_Listopad = {
 listaSwiat_Grudzien = {
     6: "Mikołajki",
     12: "Pierwszy Dzień Zimy",
+    14: "Urodziny Mamy", #to samo co w dniu matki? xD
     24: "Wigilia",
     25: "Prezenty!!",
     31: "Urodziny Elwiry"

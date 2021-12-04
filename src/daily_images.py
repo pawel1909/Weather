@@ -9,7 +9,7 @@ from app import objList
 
 currentHour = datetime.datetime.now().strftime("%H")
 
-def leftImg(currentWeather, w = 155, h = 300):
+def leftImg(currentWeather, w = 155, h = 250):
     """
     zwraca: Wypełniony danymi, pobranymi z API, box
     """
@@ -46,7 +46,7 @@ def leftImg(currentWeather, w = 155, h = 300):
     # zdobycie rozmiarów obrazka
     wi, he = weatherImg.size
     weather_img_x = int((width - wi) / 2)
-    weather_img_y = 0
+    weather_img_y = he + 10
 
     # Dzień tygodnia
     day = date["day"][1]
@@ -55,12 +55,9 @@ def leftImg(currentWeather, w = 155, h = 300):
     month = f"{b} {a}"
     month_x, month_y = draw.textsize(month, font = roboto36)
 
-    draw.text((int(width - day_x) / 2, 0), day, font = roboto36)
-    draw.text(((int(width - month_x) / 2), (day_y + 10)), month, font = roboto36)
     
 
     # Wklejenie elementów do głównego Kafelka
-    img.paste(weatherImg, (weather_img_x, (weather_img_y + const)))
 
     temp_x, temp_y = draw.textsize(minMax, font = roboto36)
     status_x, status_y = draw.textsize(status, font = roboto18)
@@ -68,13 +65,18 @@ def leftImg(currentWeather, w = 155, h = 300):
     wind_x, wind_y = draw.textsize(windSpeed, font = roboto18)
     sunrise_x, sunrise_y = draw.textsize(sunrise, font = roboto9)
     sunset_x, sunset_y = draw.textsize(sunset, font = roboto9)
+
+
+    img.paste(weatherImg, (weather_img_x, (day_y + month_y + 10)))
     # Dodanie tekstu
-    draw.text((int((width - temp_x) / 2), (he + 10 + const)), minMax, font = roboto36)
-    draw.text((int((width - status_x) / 2), (he + temp_y + 20 + const)), status, font = roboto18)
-    draw.text((int((width - humidity_x) / 2), (he + temp_y + status_y + 30 + const)), humidity, font = roboto18)
-    draw.text((int((width - wind_x) / 2), (he + temp_y + status_y + humidity_y + 40 + const)), windSpeed, font = roboto18)
-    draw.text((int((width - sunrise_x) / 2), (he + temp_y + status_y + humidity_y + wind_y + 50 + const)), sunset, font = roboto9)
-    draw.text((int((width - sunset_x) / 2), (he + temp_y + status_y + humidity_y + wind_y + sunrise_y + 60 + const)), sunrise, font = roboto9)
+    draw.text((int(width - day_x) / 2, 0), day, font = roboto36)
+    draw.text(((int(width - month_x) / 2), (day_y)), month, font = roboto36)
+    draw.text((int((width - temp_x) / 2), (he + day_y + month_y + 10)), minMax, font = roboto36)
+    draw.text((int((width - status_x) / 2), (he + temp_y + day_y + month_y + 20)), status, font = roboto18)
+    draw.text((int((width - humidity_x) / 2), (he + temp_y + status_y + day_y + month_y + 30)), humidity, font = roboto18)
+    draw.text((int((width - wind_x) / 2), (he + temp_y + status_y + humidity_y + day_y + month_y + 40)), windSpeed, font = roboto18)
+    draw.text((int((width - sunrise_x) / 2), (he + temp_y + status_y + humidity_y + wind_y + day_y + month_y + 50)), sunset, font = roboto9)
+    draw.text((int((width - sunset_x) / 2), (he + temp_y + status_y + humidity_y + wind_y + sunrise_y + day_y + month_y + 60)), sunrise, font = roboto9)
     
 
     return img

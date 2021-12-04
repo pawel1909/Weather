@@ -21,6 +21,8 @@ from app import currentWeather
 from daily_images import wList
 # Pobranie topBox
 from topText import topImg
+# STÓPKIIII xD
+from footer import footer
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -68,19 +70,23 @@ def container(main_weather_img, side_images = []):
     img = main_weather_img
     container.paste(img, (0, y))
 
-
+    # Pogoda na później
     for i in side_images:
         item = i
-        container.paste(item, (x, y))
+        container.paste(item, (x, (y + 20)))
         x += 155
 
     # dodanie zdjęcia Kiry w lewym rogu
     kira = Image.open(os.path.join(icodir, 'kira2.bmp'))
     container.paste(kira, (0, 380))
 
-    top = topImg(y)
+    # Nagłówek
+    top = topImg()
     container.paste(top, (0 , 0))
 
+    # stupki
+    f = footer()
+    container.paste(f, (200, 370))
 
     return container
 

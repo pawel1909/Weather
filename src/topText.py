@@ -59,7 +59,7 @@ def currentHoliday(month, day):
     
     return holiday
 
-def topImg(y):
+def topImg(y = 60):
     """
     zwraca: Wypełniony danymi, pobranymi z API
             Zwraca miejscowość, gdy nie ma świąt i nazwe święta, gdy jakieś się znajdzie
@@ -77,19 +77,19 @@ def topImg(y):
     text = currentHoliday(currentMonth, currentDay)
 
     if text == f"Dargowo {currentYear}":
-        x, y = draw.textsize(text, font = roboto36)
+        x, y1 = draw.textsize(text, font = roboto36)
 
-        blackBox = Image.new('1', (int((x * 2)), (y + 6)), 0)
+        blackBox = Image.new('1', (int((x * 2)), (y1 + 6)), 0)
         dr = ImageDraw.Draw(blackBox)
-        dr.text(((x / 2), 0), text, font = roboto36, fill = 1)
-        topBox.paste(blackBox, (int((width - 2 * x) / 2), int((height - y) / 2)))
+        dr.text(((x / 2), 3), text, font = roboto36, fill = 1)
+        topBox.paste(blackBox, (int((width - 2 * x) / 2), int((height - y1) / 2)))
     else:
-        x, y = draw.textsize(text, font = holiday_Font)
+        x, y1 = draw.textsize(text, font = holiday_Font)
         x1 = 1.2 * x
-        blackBox = Image.new('1', (int((x1)), (y + 6)), 0)
+        blackBox = Image.new('1', (int((x1)), (y1 + 6)), 0)
         dr = ImageDraw.Draw(blackBox)
-        dr.text((int((x1 - x) / 2), 0), text, font = holiday_Font, fill = 1)
-        topBox.paste(blackBox, (int((width - x1) / 2), int((height - y) / 2)))
+        dr.text((int((x1 - x) / 2), 3), text, font = holiday_Font, fill = 1)
+        topBox.paste(blackBox, (int((width - x1) / 2), int((height - y1) / 2)))
         
 
     # topBox.paste(blackBox, (int((width - 2 * x) / 2), int((height - y) / 2)))
