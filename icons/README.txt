@@ -1,0 +1,1 @@
+Tutaj będzie wpisywana lista zdjęć, żeby tylko nie usuwało xD
