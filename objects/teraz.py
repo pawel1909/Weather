@@ -41,4 +41,3 @@ class NowWeather():
     def currentWeather(self):
        return self.__Current
 
-print("Witaj w objekcie zapytania api")

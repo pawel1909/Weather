@@ -103,7 +103,3 @@ class Weather_obj():
         
 
 # endregion obiektPogody
-
-
-if DEBUG == 1:
-    print("Witaj w Obiekcie pogodowym")

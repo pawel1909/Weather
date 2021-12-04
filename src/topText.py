@@ -5,20 +5,61 @@ fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__
 
 func = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Fun')
 
+dat = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Dates')
+
+if os.path.exists(dat):
+    sys.path.append(dat)
+
 if os.path.exists(func):
     sys.path.append(func)
 
 from functions.language import *
+# 
+from Daty.swieta import listaSwiat_Styczen, listaSwiat_Luty, listaSwiat_Marzec, listaSwiat_Kwiecien, listaSwiat_Maj, listaSwiat_Czerwiec, listaSwiat_Lipiec, listaSwiat_Sierpien, listaSwiat_Wrzesień, listaSwiat_Pazdziernik, listaSwiat_Listopad, listaSwiat_Grudzien
 
 from PIL import Image,ImageDraw,ImageFont
 # from app import currentWeather
 import datetime
+data = datetime.datetime.now()
+currentYear = data.strftime("%Y")
+currentMonth = data.strftime("%m")
+currentDay = data.strftime("%d")
 
-currentYear = datetime.datetime.now().strftime("%Y")
+def currentHoliday(month, day):
+
+    if month == 1:
+        holiday = listaSwiat_Styczen[day]
+    elif month == 2:
+        holiday = listaSwiat_Luty[day]
+    elif month == 3:
+        holiday = listaSwiat_Marzec[day]
+    elif month == 4:
+        holiday = listaSwiat_Kwiecien[day]
+    elif month == 5:
+        holiday = listaSwiat_Maj[day]
+    elif month == 6:
+        holiday = listaSwiat_Czerwiec[day]
+    elif month == 7:
+        holiday = listaSwiat_Lipiec[day]
+    elif month == 8:
+        holiday = listaSwiat_Sierpien[day]
+    elif month == 9:
+        holiday = listaSwiat_Wrzesień[day]
+    elif month == 10:
+        holiday = listaSwiat_Pazdziernik[day]
+    elif month == 11:
+        holiday = listaSwiat_Listopad[day]
+    elif month == 12:
+        holiday = listaSwiat_Grudzien[day]
+    else:
+        holiday = f"Dargowo {currentYear}"
+    
+    return holiday
 
 def topImg(y):
     """
-    zwraca: Wypełniony danymi, pobranymi z API, box
+    zwraca: Wypełniony danymi, pobranymi z API
+            Zwraca miejscowość, gdy nie ma świąt i nazwe święta, gdy jakieś się znajdzie
     """
     roboto36 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 36)
     width = 800
@@ -28,7 +69,7 @@ def topImg(y):
 
     draw = ImageDraw.Draw(topBox)
 
-    text = f"Dargowo {currentYear}"
+    text = currentHoliday(currentMonth, currentDay)
     x, y = draw.textsize(text, font = roboto36)
 
     blackBox = Image.new('1', (int((2 * x)), (y + 6)), 0)
@@ -44,6 +85,8 @@ def topImg(y):
 
 
 
-
+if __name__ == "__main__":
+    hol = currentHoliday(12, 24)
+    print(hol)
 
     
