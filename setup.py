@@ -10,8 +10,8 @@ else:
 
 setup(
     name='waveshare-epd',
-    description='Waveshare e-Paper Display',
-    author='Waveshare',
+    description='Weather Display, moduły do kontroli ekranu skopiowane z repozutorium https://github.com/waveshare/e-Paper',
+    author='...',
     package_dir={'': 'lib'},
     packages=['waveshare_epd'],
     install_requires=dependencies,
