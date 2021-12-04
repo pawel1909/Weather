@@ -43,6 +43,7 @@ def footer(w = 600, h = 100):
 
     cytat = "Nigdy nie cofaj się wstecz!"
     cytat2 = "Nie wiem jeszcze"
+    cytat3 = "Test"
     x, y = write.textsize(cytat, font = shadowFont)
 
     write.text((int((width - x) / 2), (int((height - y) / 2))), cytat, font = shadowFont, fill = 0)
