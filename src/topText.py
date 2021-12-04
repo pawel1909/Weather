@@ -14,16 +14,16 @@ if os.path.exists(func):
     sys.path.append(func)
 
 from functions.language import *
-# 
+# import świąt, naprawdę nie wiem jak zrobić i zainicjować je łatwiej :/
 from Daty.swieta import listaSwiat_Styczen, listaSwiat_Luty, listaSwiat_Marzec, listaSwiat_Kwiecien, listaSwiat_Maj, listaSwiat_Czerwiec, listaSwiat_Lipiec, listaSwiat_Sierpien, listaSwiat_Wrzesień, listaSwiat_Pazdziernik, listaSwiat_Listopad, listaSwiat_Grudzien
 
 from PIL import Image,ImageDraw,ImageFont
 # from app import currentWeather
 import datetime
 data = datetime.datetime.now()
-currentYear = data.strftime("%Y")
-currentMonth = data.strftime("%m")
-currentDay = data.strftime("%d")
+currentYear = int(data.strftime("%Y"))
+currentMonth = int(data.strftime("%m"))
+currentDay = int(data.strftime("%d"))
 
 def currentHoliday(month, day):
 
@@ -65,7 +65,8 @@ def topImg(y):
             Zwraca miejscowość, gdy nie ma świąt i nazwe święta, gdy jakieś się znajdzie
     """
     roboto36 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 36)
-    roboto24 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 24)
+    # Nazwane inaczej ze względu na testowanie czcionki
+    holiday_Font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 36)
     width = 800
     height = y
 
@@ -78,17 +79,20 @@ def topImg(y):
     if text == f"Dargowo {currentYear}":
         x, y = draw.textsize(text, font = roboto36)
 
-        blackBox = Image.new('1', (int((2 * x)), (y + 6)), 0)
+        blackBox = Image.new('1', (int((x * 2)), (y + 6)), 0)
         dr = ImageDraw.Draw(blackBox)
         dr.text(((x / 2), 0), text, font = roboto36, fill = 1)
+        topBox.paste(blackBox, (int((width - 2 * x) / 2), int((height - y) / 2)))
     else:
-        x, y = draw.textsize(text, font = roboto24)
-
-        blackBox = Image.new('1', (int((2 * x)), (y + 6)), 0)
+        x, y = draw.textsize(text, font = holiday_Font)
+        x1 = 1.2 * x
+        blackBox = Image.new('1', (int((x1)), (y + 6)), 0)
         dr = ImageDraw.Draw(blackBox)
-        dr.text(((x / 2), 0), text, font = roboto24, fill = 1)
+        dr.text((int((x1 - x) / 2), 0), text, font = holiday_Font, fill = 1)
+        topBox.paste(blackBox, (int((width - x1) / 2), int((height - y) / 2)))
+        
 
-    topBox.paste(blackBox, (int((width - 2 * x) / 2), int((height - y) / 2)))
+    # topBox.paste(blackBox, (int((width - 2 * x) / 2), int((height - y) / 2)))
 
 
 
@@ -98,7 +102,9 @@ def topImg(y):
 
 
 if __name__ == "__main__":
-    hol = currentHoliday(1, 12)
+    hol = currentHoliday(currentMonth, currentDay)
     print(hol)
+    print(currentDay)
 
     
+### END OF FILE ###

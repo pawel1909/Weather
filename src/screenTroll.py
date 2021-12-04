@@ -111,3 +111,6 @@ except KeyboardInterrupt:
     logging.info("ctrl + c:")
     epd7in5_V2.epdconfig.module_exit()
     exit()
+
+# moduł nieużywany w końcowej wersji ?
+### END OF FILE ###
