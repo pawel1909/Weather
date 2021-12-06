@@ -2,10 +2,20 @@ import sys
 import os
 icodir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'icons')
 fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
+
+listdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Listy')
 from PIL import Image,ImageDraw,ImageFont
+
+dat = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Data')
+
+if os.path.exists(dat):
+    sys.path.append(dat)
+
 # from app import currentWeather
 import datetime
 from app import objList
+
+from Listy import icondict
 
 currentHour = datetime.datetime.now().strftime("%H")
 
@@ -36,7 +46,11 @@ def leftImg(currentWeather, w = 155, h = 250):
     icon = currentWeather.getIconID()
     status = currentWeather.getDetailedStatus()
     # chwilowe rozwiązanie zniknie po zrobieniu i zlinkowaniu wsyzstkich obrazów
-    weatherImg = Image.open(os.path.join(icodir, 'wind.bmp')) # zamienić 'wind.bmp' na icon
+    try:
+        ico = icondict.icons[icon]
+    except:
+        ico = "tornado.png"
+    weatherImg = Image.open(os.path.join(icodir, ico)) # zamienić 'wind.bmp' na icon
     
 
     # Stworzenie Kafelka

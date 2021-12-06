@@ -5,10 +5,17 @@ fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__
 
 func = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Fun')
 
+dat = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Data')
+
+if os.path.exists(dat):
+    sys.path.append(dat)
+
 if os.path.exists(func):
     sys.path.append(func)
 
 from functions.language import *
+
+from Listy import icondict
 
 from PIL import Image,ImageDraw,ImageFont
 # from app import currentWeather
@@ -44,8 +51,15 @@ def leftImg(currentWeather, w = 180, h = 300):
     sunset = currentWeather.getSunset()
     icon = currentWeather.getIconID()
     status = currentWeather.getDetailedStatus()
+
     # chwilowe rozwiązanie zniknie po zrobieniu i zlinkowaniu wsyzstkich obrazów
-    weatherImg = Image.open(os.path.join(icodir, 'wind.bmp')) # zamienić 'wind.bmp' na icon
+    try:
+        ico = icondict.icons[str(icon)]
+    except:
+        print("Błąd lewego obrazka")
+        print(icon)
+        ico = "tornado.png"
+    weatherImg = Image.open(os.path.join(icodir, ico)) # zamienić 'wind.bmp' na icon
     
     
 
