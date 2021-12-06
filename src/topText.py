@@ -5,7 +5,7 @@ fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__
 
 func = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Fun')
 
-dat = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Dates')
+dat = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Data')
 
 if os.path.exists(dat):
     sys.path.append(dat)

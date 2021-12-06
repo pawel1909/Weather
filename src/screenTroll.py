@@ -53,7 +53,7 @@ def trollingContainer():
     shadowFont = ImageFont.truetype(os.path.join(fontdir, 'Shadow.ttf'), 36)
     draw = ImageDraw.Draw(container)
 
-    img = Image.open(os.path.join(icodir, 'pawel_kupa.bmp'))
+    img = Image.open(os.path.join(icodir, 'piter.bmp'))
 
     x, y = img.size
 
@@ -89,16 +89,6 @@ try:
 
     logging.info("Goto Sleep...")
     epd.sleep()
-    time.sleep(20)
-
-    logging.info("init and Clear")
-    epd.init()
-    epd.Clear()
-
-
-    logging.info("creating container")
-    con = container(leftImg(currentWeather), side_images = wList)
-    epd.display(epd.getbuffer(con))
 
     
     logging.info("Goto Sleep...")

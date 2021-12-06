@@ -5,6 +5,9 @@ from PIL import ImageDraw, ImageFont, Image
 import sys
 import os
 
+
+import qrcode
+
 import datetime
 
 teraz = datetime.datetime.now()
@@ -32,8 +35,23 @@ print(f"Data dzisiejsza: {teraz}\n")
 
 filename = os.path.join('/home/pi/Keys', 'owm.txt')
 
-API_KEY = ""
-with open(filename) as f:
-    API_KEY = f.read()
+x = "test"
+y = ["test", "test"]
+
+print(type(x))
+print(type(y))
+
+if type(x) == type(""):
+    print("Tak")
+
+print("#" * 10)
+
+#stworzenie instancji qrKoda
+qr = qrcode.QRCode(version=1,box_size=10,border=5)
+
+qr.add_data("Dupa, Cycki, Dupa")
+qr.make(fit=True)
+img = qr.make_image(fill='black', back_color='white')
+img.save('xD.png')
 
 ### END OF FILE ###

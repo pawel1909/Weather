@@ -99,8 +99,7 @@ class Weather_obj():
 
     def __str__(self):
         return f'Data: {self.getDate()},{self.getTemperature()},{self.getMinMaxTemp()},{self.getStatus()},{self.getDetailedStatus()},{self.getHumidity()},{self.getPressure()},{self.getWindSpeed()},{self.getSunrise()},{self.getSunset()},{self.getIconID()}'
-        
-        
+
 
 # endregion obiektPogody
 

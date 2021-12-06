@@ -9,12 +9,16 @@ if os.path.exists(func):
     sys.path.append(func)
 
 from functions.language import *
+from functions import qrGenerator
 
 from PIL import Image,ImageDraw,ImageFont
 # from app import currentWeather
 import datetime
 
 currentHour = datetime.datetime.now().strftime("%H")
+
+
+
 
 def footer(w = 600, h = 100):
 
@@ -41,20 +45,26 @@ def footer(w = 600, h = 100):
     write.line((0, 0, 600, 0), fill = 0)
     write.line((0, 150, 0, 0), fill = 0)
 
-    cytat = "Nigdy nie cofaj się wstecz!"
+    cytat = "Nigdy nie cofaj się Wstecz!"
     cytat2 = "Nie wiem jeszcze"
     cytat3 = "Test"
     cytat4 = "Test2222"
     x, y = write.textsize(cytat, font = shadowFont)
 
     write.text((int((width - x) / 2), (int((height - y) / 2))), cytat, font = shadowFont, fill = 0)
+    
+    img = qrGenerator.qrGenerator(1)
+
+    foot.paste(img, (0 , 0))
 
 
     return foot
 
 
 
-
+if __name__ == "__main__":
+    zdanie = "To, czego szukasz, znajdziesz w ostatnim z możliwych miejsc."
+    print(iloscSlow(zdanie))
 
     
 ### END OF FILE ###
