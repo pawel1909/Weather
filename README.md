@@ -11,5 +11,5 @@
 - jeszcze tego nie określiłem*
 - dobre pytanie
 > Aplikacja została stworzona jako program obsługujący ekran e-ink za pomocą języka 'python'.
-> Dostarczyła mi wiele frajdy i jestem świadom popełnienia wielu błędów 'językowych'
+> Dostarczyła mi wiele frajdy i jestem świadom popełnienia wielu błędów 'językowych'.
 > Błędy popełniamy, żeby się z nich uczyć. Prawda? ... Prawda...?
