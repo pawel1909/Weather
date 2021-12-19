@@ -1,9 +1,11 @@
 import matplotlib
 import matplotlib.pyplot as plt
 from functions.fun import rawData
+import datetime
 
 
 def makePlot(arraj):
+    H = datetime.datetime.now().hour
     x = [rawData(item.ref_time).hour for item in arraj]
     y = [int(item.temperature('celsius')["temp"]) for item in arraj]
 
@@ -25,7 +27,8 @@ def makePlot(arraj):
     figa.subplots_adjust(bottom = 0.15)
 
     #stworzenie osi x z godzinami
-    xt = [(str(item) + ":00") for item in x[:8] ]
+    xt = ["Teraz" if item == (H + 1) else (str(item) + ":00") for item in x[:8] ]
+    print(xt)
     plt.xticks(ticks=[1,2,3,4,5,6,7,8], labels=xt)
 
     # Narysowanie wykresu
