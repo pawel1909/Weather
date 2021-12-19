@@ -1,3 +1,5 @@
+### TO JEST CHYBA NIEPOTRZEBNE, ALE BOJĘ SIĘ USUNĄĆ ###
+
 import sys
 import os
 icodir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'icons')

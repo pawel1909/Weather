@@ -14,9 +14,12 @@ from functions.apiKey import mgr
 
 class NowWeather():
     
+    call = mgr.one_call(53.965923, 19.669524)
+
     def __init__(self, lat = 53.965923, lon = 19.669524):
-        self.one_call_now = mgr.one_call(lat, lon).forecast_daily
-        self.__Current = mgr.one_call(lat, lon).current
+        self.one_call_now = self.call.forecast_daily
+        self.__Current = self.call.current
+        self.__Hourly = self.call.forecast_hourly
         self.start = 0
         self.end = len(self.one_call_now)
         # self.__temperature = self.one_call_now.temperature('celsius')
@@ -40,5 +43,8 @@ class NowWeather():
     
     def currentWeather(self):
        return self.__Current
+    
+    def hour(self):
+        return [i for i in self.__Hourly]
 
 ### END OF FILE ###

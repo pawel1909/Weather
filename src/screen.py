@@ -23,40 +23,13 @@ from daily_images import wList
 from topText import topImg
 # STÓPKIIII xD
 from footer import footer
+# trol
+from screenTroll import trollingContainer
 
 logging.basicConfig(level=logging.DEBUG)
 
 
-def trollingContainer():
-    """ 
-        Tutaj jest metoda, tworząca dziwne rzeczy xD
 
-    """
-    container = Image.new('1', (epd.width, epd.height), 255)
-
-    shadowFont = ImageFont.truetype(os.path.join(fontdir, 'Shadow.ttf'), 36)
-    draw = ImageDraw.Draw(container)
-
-    img = Image.open(os.path.join(icodir, 'pawel_kupa.bmp'))
-
-    x, y = img.size
-
-    container.paste(img, (0, 0))
-
-    textContainer = Image.new('1', ((epd.width - x), (epd.height)), 255)
-    textDraw = ImageDraw.Draw(textContainer)
-
-    msg = "Poszukiwany"
-    msg2 = "Czy widziałeś tego cżłowieka?"
-    msg3 = "Nagroda 10000 Cebulionów"
-
-    textDraw.text((0, 0), msg, font = shadowFont, fill = 0)
-    textDraw.text((0, 36), msg2, font = shadowFont, fill = 0)
-    textDraw.text((0, 400), msg3, font = shadowFont, fill = 0)
-
-    container.paste(textContainer, (x, 0))
-
-    return container
 
 def container(main_weather_img, side_images = []):
     """
@@ -86,7 +59,7 @@ def container(main_weather_img, side_images = []):
 
     # stupki
     f = footer()
-    container.paste(f, (200, 370))
+    container.paste(f, (150, 350))
 
     return container
 
@@ -97,7 +70,10 @@ try:
     epd.init()
     epd.Clear()
 
-    if False:
+    date = datetime.datetime.now()
+    H = int(date.strftime("%H"))
+    M = int(date.strftime("%M"))
+    if H == 20 and M == 37:
         logging.info("Trolling Container on the way!!!!!")
         troll = trollingContainer()
         epd.display(epd.getbuffer(troll))

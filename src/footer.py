@@ -1,6 +1,7 @@
 import sys
 import os
 
+icodir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'icons')
 fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
 
 func = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'Fun')
@@ -20,7 +21,7 @@ currentHour = datetime.datetime.now().strftime("%H")
 
 
 
-def footer(w = 600, h = 100):
+def footer(w = 650, h = 120):
 
     """
     # Tak jakby stopka
@@ -51,11 +52,12 @@ def footer(w = 600, h = 100):
     cytat4 = "Test2222"
     x, y = write.textsize(cytat, font = shadowFont)
 
-    write.text((int((width - x) / 2), (int((height - y) / 2))), cytat, font = shadowFont, fill = 0)
-    
+    # write.text((int((width - x) / 2), (int((height - y) / 2))), cytat, font = shadowFont, fill = 0)
+    plot = Image.open(os.path.join(icodir, 'xxx.png'))
+    foot.paste(plot, (0, 0))
     img = qrGenerator.qrGenerator(1)
 
-    foot.paste(img, (0 , 0))
+    foot.paste(img, (549 , 19))
 
 
     return foot
@@ -64,7 +66,9 @@ def footer(w = 600, h = 100):
 
 if __name__ == "__main__":
     zdanie = "To, czego szukasz, znajdziesz w ostatnim z możliwych miejsc."
-    print(iloscSlow(zdanie))
+    # print(iloscSlow(zdanie))
+    makePlot(hList)
+    
 
     
 ### END OF FILE ###
