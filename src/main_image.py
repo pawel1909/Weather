@@ -21,13 +21,13 @@ from PIL import Image,ImageDraw,ImageFont
 # from app import currentWeather
 import datetime
 
-currentHour = datetime.datetime.now().strftime("%H")
+
 
 def leftImg(currentWeather, w = 180, h = 300):
     """
     zwraca: Wypełniony danymi, pobranymi z API, box
     """
-
+    currentHour = datetime.datetime.now().strftime("%H")
     # Fonty użyte w boxie
     roboto36 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 36)
     roboto24 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 24)
@@ -94,7 +94,11 @@ def leftImg(currentWeather, w = 180, h = 300):
     draw.text((int(width - month_x) / 2, day_y), date_month, font = roboto24)
     draw.text((int((width - sunset_x) / 2), (day_y + month_y)), sunset, font = roboto12)
     draw.text((int((width - temp_x) / 2), (day_y + he + month_y + sunset_y)), temp, font = roboto36)
-    draw.text((int((width - status_x) / 2), (day_y + he + temp_y + 10 + month_y + sunset_y)), status, font = roboto18)
+    if status_x < width:
+        draw.text((int((width - status_x) / 2), (day_y + he + temp_y + 10 + month_y + sunset_y)), status, font = roboto18)
+    else:
+        status_x, status_y = draw.textsize(status, font = roboto12)
+        draw.text((int((width - status_x) / 2), (day_y + he + temp_y + 10 + month_y + sunset_y)), status, font = roboto12)
     draw.text((int((width - humidity_x) / 2), (day_y + he + temp_y + status_y + 20 + month_y + sunset_y)), humidity, font = roboto18)
     draw.text((int((width - wind_x) / 2), (day_y + he + temp_y + status_y + humidity_y + 30 + month_y + sunset_y)), windSpeed, font = roboto18)
     draw.text((int((width - sunrise_x) / 2), (day_y + he + temp_y + status_y + humidity_y + wind_y + sunset_y + 40 + month_y)), sunrise, font = roboto12)

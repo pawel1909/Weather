@@ -3,7 +3,7 @@
 listaSwiat_Styczen = {
     1: "Nowy Rok",
     6: "Trzech Króli",
-    21: "Dzień Babci",
+    21: "Urodziny Taty",
     22: "Dzień Dziadka",
     31: "Dzień przytulania"
 }

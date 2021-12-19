@@ -17,17 +17,18 @@ from app import objList
 
 from Listy import icondict
 
-currentHour = datetime.datetime.now().strftime("%H")
+
 
 def leftImg(currentWeather, w = 155, h = 250):
     """
     zwraca: Wypełniony danymi, pobranymi z API, box
     """
-
+    currentHour = datetime.datetime.now().strftime("%H")
     # Fonty użyte w boxie
     roboto36 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 18)
     roboto18 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 16)
     roboto9 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 9)
+    roboto12 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
 
     # wymiary
     width = w
@@ -86,7 +87,11 @@ def leftImg(currentWeather, w = 155, h = 250):
     draw.text((int(width - day_x) / 2, 0), day, font = roboto36)
     draw.text(((int(width - month_x) / 2), (day_y)), month, font = roboto36)
     draw.text((int((width - temp_x) / 2), (he + day_y + month_y + 10)), minMax, font = roboto36)
-    draw.text((int((width - status_x) / 2), (he + temp_y + day_y + month_y + 20)), status, font = roboto18)
+    if status_x < width:
+        draw.text((int((width - status_x) / 2), (he + temp_y + day_y + month_y + 20)), status, font = roboto18)
+    else:
+        status_x, status_y = draw.textsize(status, font = roboto12)
+        draw.text((int((width - status_x) / 2), (he + temp_y + day_y + month_y + 20)), status, font = roboto12)
     draw.text((int((width - humidity_x) / 2), (he + temp_y + status_y + day_y + month_y + 30)), humidity, font = roboto18)
     draw.text((int((width - wind_x) / 2), (he + temp_y + status_y + humidity_y + day_y + month_y + 40)), windSpeed, font = roboto18)
     draw.text((int((width - sunrise_x) / 2), (he + temp_y + status_y + humidity_y + wind_y + day_y + month_y + 50)), sunset, font = roboto9)
