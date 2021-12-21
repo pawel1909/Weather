@@ -3,6 +3,8 @@ icons = {
     '01n': "clear_sky.bmp",
     '02d': "few_clouds.png",
     '02n': "few_clouds.png",
+    '03d': "few_clouds.png",
+    '03n': "few_clouds.png",
     '13d': "snow.png",
     '13n': "snow.png",
     '09d': "light_rain.png",
