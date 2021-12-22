@@ -1,5 +1,5 @@
 # Lista świąt kalendarzowych, które znam i pamiętam [dzień: int, miesiac: int]
-# Poważnie nie wiem czy to jest napisane zgodnie ze sztuką pisania xD
+# Poważnie nie wiem czy to jest napisane tak jak powinno być, pewnie powinienem użyć pliku json (nie miałem czasu na to :/)
 listaSwiat_Styczen = {
     1: "Nowy Rok",
     6: "Trzech Króli",

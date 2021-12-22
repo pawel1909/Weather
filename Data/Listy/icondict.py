@@ -1,3 +1,4 @@
+# ta sama sytuacja co z świętami 
 icons = {
     '01d': "clear_sky.bmp",
     '01n': "clear_sky.bmp",

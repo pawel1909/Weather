@@ -29,6 +29,11 @@ from screenTroll import trollingContainer
 logging.basicConfig(level=logging.DEBUG)
 
 
+def noWifi():
+    container = Image.new('1', (epd.width, epd.height), 255)
+    kupa = Image.open(os.path.join(icodir, 'son.bmp'))
+    container.paste(kupa)
+    return container
 
 
 def container(main_weather_img, side_images = []):
@@ -89,7 +94,10 @@ try:
     
     
     logging.info("creating container")
-    con = container(leftImg(currentWeather), side_images = wList)
+    try:
+        con = container(leftImg(currentWeather), side_images = wList)
+    except:
+        con = noWifi()
     epd.display(epd.getbuffer(con))
 
     

@@ -1,3 +1,5 @@
+# Lista wiadomości, które miały zostac użyte w końcowej wersji programu, ale nie starczyło czasu na zrobienie i została zastąpiona wykresem
+
 from random import choice
 
 def iloscSlow(zdanie):

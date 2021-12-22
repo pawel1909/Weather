@@ -1,3 +1,6 @@
+# Metoda tworząca plik png z wykresem temperatur w 8 następujących po sobie godzinach
+# Jeżeli zapytasz dlaczego zapisuje, to odpowiem, że nie było czasu, ale może teraz już umiesz xD
+
 import matplotlib
 import matplotlib.pyplot as plt
 from functions.fun import rawData
@@ -28,7 +31,6 @@ def makePlot(arraj):
 
     #stworzenie osi x z godzinami
     xt = ["Teraz" if item == (H + 1) else (str(item) + ":00") for item in x[:8] ]
-    print(xt)
     plt.xticks(ticks=[1,2,3,4,5,6,7,8], labels=xt)
 
     # Narysowanie wykresu

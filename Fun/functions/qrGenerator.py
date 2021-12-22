@@ -1,3 +1,6 @@
+# tutaj można dać stronę z internetu, aby wyświetliła się w postaci kodu qr
+# 
+from random import choices
 import qrcode
 
 
@@ -7,12 +10,10 @@ def qrGenerator(tekst):
     
     Zwraca: qrcode z czymkolwiek bedzie w tekscie stringa xD
     '''
-    wiki_losowe = "https://pl.wikipedia.org/wiki/Specjalna:Losowa_strona"
-    i = 4
+    losowe = ["https://pl.wikipedia.org/wiki/Specjalna:Losowa_strona", "https://secretoftaste.blog/wylosuj-przepis/", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
+    i = 3
 
-    if type(tekst) != type(""):
-        tekst = wiki_losowe
-        i = 3
+    tekst = choices(losowe, weights = [44, 44, 2], k = 1)[0]
 
     qr = qrcode.QRCode(version=1,box_size=i,border=1)
 

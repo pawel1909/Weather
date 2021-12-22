@@ -1,3 +1,5 @@
+# Nie miałem siły i musiałem twardo przetłumaczyć nazwy dni tygodnia oraz miesięcy,
+# By na ekranie pojawiały się w spolszczonej wersji
 import datetime
 
 day = datetime.datetime(1995, 4, 12).strftime("%b")

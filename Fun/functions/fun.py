@@ -1,3 +1,4 @@
+# Plik odpowiedzialny za dostarczenie metod obsługi 'daty' uzyskanej w postaci 'timestamp'
 import datetime
 
 def date(timestamp: int):

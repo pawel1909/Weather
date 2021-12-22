@@ -1,5 +1,6 @@
 
 from pyowm import OWM
+from pyowm.utils.config  import get_default_config
 import os
 import sys
 
@@ -11,10 +12,15 @@ if os.path.exists(func):
 from functions.fun import *
 
 from functions.apiKey import mgr
+config_dict = get_default_config()
+config_dict["language"] = 'pl'
 
 class NowWeather():
     
-    call = mgr.one_call(53.965923, 19.669524)
+    try:
+        call = mgr.one_call(53.965923, 19.669524)
+    except:
+        call = None
 
     def __init__(self, lat = 53.965923, lon = 19.669524):
         self.one_call_now = self.call.forecast_daily
