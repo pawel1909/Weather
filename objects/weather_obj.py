@@ -45,7 +45,7 @@ class Weather_obj():
             self.__temperatureNight = f"{temperature_night}{chr(176)}C"
             self.__minMaxTemp = f"{int(temp_min)}{chr(176)}C ~ {int(temp_max)}{chr(176)}C"
             self.__humidity = humidity
-            self.__pressure = f"Ciśnienie {pressure}hPa"
+            self.__pressure = pressure
             self.__windSpeed = f"Wiatr: {wind_speed}m/s"
             self.__status = status
             self.__detailed_status = detailed_status
@@ -82,6 +82,9 @@ class Weather_obj():
         return f"Wilgotność: {self.__humidity}%"
 
     def getPressure(self):
+        return f"Ciśnienie {self.__pressure}hPa"
+    
+    def getRawPressure(self):
         return self.__pressure
 
     def getWindSpeed(self):

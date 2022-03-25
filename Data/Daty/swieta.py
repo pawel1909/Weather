@@ -69,7 +69,8 @@ listaSwiat_Grudzien = {
     12: "Pierwszy Dzień Zimy",
     14: "Urodziny Mamy", #to samo co w dniu matki? xD
     24: "Wigilia",
-    25: "Prezenty!!",
+    25: "Pierwszy Dzień Świąt",
+    26: "Drugi Dzień Świąt",
     31: "Urodziny Elwiry"
 }
 

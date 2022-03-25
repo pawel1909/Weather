@@ -52,7 +52,7 @@ def leftImg(currentWeather, w = 180, h = 300):
     icon = currentWeather.getIconID()
     status = currentWeather.getDetailedStatus()
 
-    # chwilowe rozwiązanie zniknie po zrobieniu i zlinkowaniu wsyzstkich obrazów
+    
     try:
         ico = icondict.icons[str(icon)]
     except:

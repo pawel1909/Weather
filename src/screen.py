@@ -30,6 +30,9 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 def noWifi():
+    '''
+    Wyświetlanie zdjęcia z możliwym rozwiązaniem problemu
+    '''
     container = Image.new('1', (epd.width, epd.height), 255)
     kupa = Image.open(os.path.join(icodir, 'son.bmp'))
     container.paste(kupa)
@@ -55,7 +58,7 @@ def container(main_weather_img, side_images = []):
         x += 155
 
     # dodanie zdjęcia Kiry w lewym rogu
-    kira = Image.open(os.path.join(icodir, 'kira2.bmp'))
+    kira = Image.open(os.path.join(icodir, 'kira.bmp'))
     container.paste(kira, (0, 380))
 
     # Nagłówek
