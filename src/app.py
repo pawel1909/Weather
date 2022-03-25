@@ -7,7 +7,7 @@ if os.path.exists(obj):
     sys.path.append(obj)
 
 from weather_obj import Weather_obj
-from teraz import NowWeather
+from getCurrentWeatherData import NowWeather
 from functions.plottwist import makePlot
 
 # config_dict = get_default_config()
