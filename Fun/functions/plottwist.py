@@ -1,6 +1,7 @@
 # Metoda tworząca plik png z wykresem temperatur w 8 następujących po sobie godzinach
 # Jeżeli zapytasz dlaczego zapisuje, to odpowiem, że nie było czasu, ale może teraz już umiesz xD
 
+import os
 import matplotlib
 import matplotlib.pyplot as plt
 from functions.fun import rawData
@@ -8,6 +9,11 @@ import datetime
 
 
 def makePlot(arraj):
+    
+    '''
+    Create plot of 
+    '''
+    # Wczytanie danych
     H = datetime.datetime.now().hour
     x = [rawData(item.ref_time).hour for item in arraj]
     y = [int(item.temperature('celsius')["temp"]) for item in arraj]
@@ -30,7 +36,11 @@ def makePlot(arraj):
     figa.subplots_adjust(bottom = 0.15)
 
     #stworzenie osi x z godzinami
-    xt = ["Teraz" if item == (H + 1) else (str(item) + ":00") for item in x[:8] ]
+
+
+    # jedyny moment, w którym nie działa to godzina 23,
+    # Nikt na to nie będzie patrzył o 23 xD
+    xt = ["Teraz" if item == (H + 1) else (str(item) + ":00") for item in x1 ]
     plt.xticks(ticks=[1,2,3,4,5,6,7,8], labels=xt)
 
     # Narysowanie wykresu
@@ -43,6 +53,11 @@ def makePlot(arraj):
         l = f"{y}{chr(176)}C"
         plt.annotate(l, (x, y), textcoords = "offset points", xytext = (0, 10), ha = 'center')
 
-    plt.savefig("/home/pi/WeatherStation/icons/xxx.png", dpi = 100)
+    # Get absolute path to icon directory in any machine
+    pathToPlot = f"{os.path.dirname(os.path.abspath(__name__))}/icons/hourlyTemperaturePlot.png"
+    # plt.savefig("/home/pi/WeatherStation/icons/xxx.png", dpi = 100)
+    plt.savefig(pathToPlot, dpi = 100)
+
+    
     
 

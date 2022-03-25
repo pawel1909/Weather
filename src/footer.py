@@ -53,7 +53,7 @@ def footer(w = 650, h = 120):
     x, y = write.textsize(cytat, font = shadowFont)
 
     # write.text((int((width - x) / 2), (int((height - y) / 2))), cytat, font = shadowFont, fill = 0)
-    plot = Image.open(os.path.join(icodir, 'xxx.png'))
+    plot = Image.open(os.path.join(icodir, 'hourlyTemperaturePlot.png'))
     foot.paste(plot, (0, 0))
     img = qrGenerator.qrGenerator(1)
 
