@@ -13,6 +13,8 @@ def main():
 
     # print(currentWeather)
     state = 1
+    if HOUR == 21 and MINUTE > 30:
+        state = 0
     
     container = makeImg(state)
     
