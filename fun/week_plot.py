@@ -26,12 +26,12 @@ def createWeekFile(temperature, year = YEAR, month= MONTH, day = DAY, dayname = 
     
     
     # Creates file copy. In case something went wrong.
-    # if(os.path.exists(path)):
-    #     with open(path, 'r') as f1:
-    #         with open(copy_path, 'w') as f2:
-    #             t = json.load(f1)
-    #             t = json.dumps(t)
-    #             f2.write(t)
+    if(os.path.exists(path)):
+        with open(path, 'r') as f1:
+            with open(copy_path, 'w') as f2:
+                t = json.load(f1)
+                t = json.dumps(t)
+                f2.write(t)
     
 
     
