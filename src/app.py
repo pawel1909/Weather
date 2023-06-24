@@ -65,7 +65,7 @@ def makeImg(state: int):
 
         container = mainImage(currentWeather, wList, "Ile mocy z paneli", 1)
         # Wstrzymane. Wymaga przebudowy obiektu pogody aby otrzymać temperaturę w danym momencie.
-        # createWeekFile(1)
+        createWeekFile(1)
 
         if(DEBUG == 1):
             print("Pomyślne utworzenie obiektu")
@@ -77,6 +77,7 @@ def makeImg(state: int):
         wList = []
         if(DEBUG == 1):
             print("Obiekty nie zostały stworzone, będzie soń")
+        return troll()
 
     return container
 

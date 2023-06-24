@@ -77,11 +77,11 @@ def leftImg(currentWeather: Weather_obj):
     draw.text((day_x, y), day, font = ROBOTO24)
     y += day_y
     draw.text((c_month_x, y), c_month, font = ROBOTO24)
-    y += c_month_y
+    y += c_month_y + 10
     draw.text((sunset_x, y), sunset, font = ROBOTO12)
-    y += sunset_y
+    y += sunset_y + 10
     img.paste(weatherImg, (icon_x, y))
-    y += ico_h
+    y += ico_h + 10
     draw.text((temp_x, y), temp, font = ROBOTO36)
     y += temp_y
     if status_x < WIDTH:

@@ -9,6 +9,8 @@ from .limage import leftImg
 from .rimage import rightImage
 from .timage import  topImage
 from .simage import specialImage
+from .ktoimg import personImage
+from data.date import MINUTE
 
 
 def mainImage(currentWeather: Weather_obj, wList: list, text: str, state: int):
@@ -23,6 +25,11 @@ def mainImage(currentWeather: Weather_obj, wList: list, text: str, state: int):
     special = specialImage(text)
     
     containter = Image.new('1', (WIDTH, HEIGHT), 255)
+
+    # if True:
+    #     x = personImage()
+    #     containter.paste(x, (0, 0))
+    #     return containter
     
     containter.paste(left, (0, 60))
     containter.paste(special, (0, 340))
