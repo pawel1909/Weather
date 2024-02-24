@@ -1,10 +1,14 @@
-import logging
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
 
-from PIL import Image
+import logging
+import time
+
 
 from src.app import makeImg
-from data.date import HOUR, MINUTE
 from lib import epd7in5_V2
+
+from data.date import MINUTE, HOUR
 
 
 def main():
@@ -12,29 +16,41 @@ def main():
     # im = img.save("test.png")
 
     # print(currentWeather)
-    state = 1
     
-    container = makeImg(state)
+    container = makeImg()
+    person = makeImg(0)
     
+    # im = container.save("test.png")
     im = container.save("test.png")
 
-    # try:
-    #     epd = epd7in5_V2.EPD()
-    #     logging.info("init and Clear")
-    #     epd.init()
-    #     epd.Clear()
+    try:
+        epd = epd7in5_V2.EPD()
 
-    #     logging.info("creating screen")
-    #     epd.display(epd.getbuffer(container))
+        if HOUR == 21 and MINUTE > 30:
+            logging.info("init and Clear")
+            epd.init()
+            epd.Clear()
+            logging.info("creating screen")
+            epd.display(epd.getbuffer(person))
+            logging.info("Going to sleep")
+            epd.sleep()
+            time.sleep(10)
+        
+        logging.info("init and Clear")
+        epd.init()
+        epd.Clear()
 
-    #     logging.info("Going to sleep")
-    #     epd.sleep()
-    # except IOError as e:
-    #     logging.info(e)
-    # except KeyboardInterrupt:
-    #     logging.info("ctrl + c:")
-    #     epd7in5_V2.epdconfig.module_exit()
-    #     exit()
+        logging.info("creating screen")
+        epd.display(epd.getbuffer(container))
+
+        logging.info("Going to sleep")
+        epd.sleep()
+    except IOError as e:
+        logging.info(e)
+    except KeyboardInterrupt:
+        logging.info("ctrl + c:")
+        epd7in5_V2.epdconfig.module_exit()
+        exit()
 
     
 

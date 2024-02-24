@@ -3,7 +3,7 @@ from pyowm import OWM
 from pyowm.utils.config import get_default_config
 # Pobranie danych z pliku w folderze KEYS TODO zrobić coś, zeby dane były gdzieś indziej?
 import os
-filename = os.path.join('/home/pi/Keys', 'owm.txt')
+filename = os.path.join('/home/pi/Keys', 'owm2.txt')
 
 API_KEY = ""
 

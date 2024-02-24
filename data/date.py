@@ -1,12 +1,16 @@
-from datetime import datetime
+from datetime import datetime, date
 
-date = datetime.now()
-DAY = int(date.strftime("%d"))
-MONTH = int(date.strftime("%m"))
-YEAR = int(date.strftime("%Y"))
-HOUR = int(date.hour)
-MINUTE = int(date.minute)
+data = datetime.now()
+DAY = int(data.strftime("%d"))
+MONTH = int(data.strftime("%m"))
+YEAR = int(data.strftime("%Y"))
+HOUR = int(data.hour)
+MINUTE = int(data.minute)
 
-DAYNAME = date.strftime("%a")
+DAYNAME = data.strftime("%a")
 
-print(DAYNAME)
+
+d = date.today()
+s = date(2023, 8, 12)
+
+SLUB = (s - d).days

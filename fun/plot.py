@@ -30,7 +30,7 @@ def makePlot(array):
     fig1.set_size_inches(6, 1.2)
     fig1.subplots_adjust(bottom=0.15)
 
-    xt = ["Teraz" if item == (HOUR) else (str(item) + ":00") for item in x]
+    xt = ["Teraz" if item == (HOUR + 1) else (str(item) + ":00") for item in x]
     plt.xticks(ticks=x1, labels=xt)
 
     # Rysowanie wykresu
@@ -41,6 +41,8 @@ def makePlot(array):
     for x, y in zip(x1,y):
         l = f"{y}{chr(176)}C"
         plt.annotate(l, (x, y), textcoords = "offset points", xytext = (0, 10), ha = 'center')
-
-    pathToPlot = f"{os.path.dirname(os.path.abspath(__name__))}/images/plot.png"
+    p = os.path.dirname(__file__)
+    a = os.path.join(p, os.pardir)
+    a = os.path.abspath(a)
+    pathToPlot = f"{a}/images/plot.png"
     plt.savefig(pathToPlot, dpi = 100)

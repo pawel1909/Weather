@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw
 
-from fun.holiday import holiday
+from fun.holiday import holiday, holidaydb
 from data.fonts import ROBOTO36
 from data.debug import DEBUG
 
@@ -13,14 +13,19 @@ def topImage():
 
     tImage = Image.new('1', (WIDTH, HEIGHT), 255)
     draw = ImageDraw.Draw(tImage)
-
     try:
-        h = holiday()
+        h = holidaydb()
         text = h[0]
         state = h[1]
-    except:
-        text = "Coś poszło nie tak"
-        state = 0
+    except Exception as e:
+        print(e)
+        try:
+            h = holiday()
+            text = h[0]
+            state = h[1]
+        except:
+            text = "Coś poszło nie tak"
+            state = 0
 
     x, y = draw.textsize(text, font=ROBOTO36)
 

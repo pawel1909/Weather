@@ -19,7 +19,7 @@ def specialImage(text: str):
     kira = Image.open(os.path.join(icodir, 'kira.bmp'))
     specialImg.paste(kira, (0, 40))
 
-    x, y = draw.textsize(text, font=SHADOW24)
-    draw.text(((int(WIDTH - x) / 2, 0)), text, font=SHADOW24)
+    # x, y = draw.textsize(text, font=SHADOW24)
+    # draw.text(((int(WIDTH - x) / 2, 0)), text, font=SHADOW24)
 
     return specialImg

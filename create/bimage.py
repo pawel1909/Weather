@@ -21,9 +21,12 @@ def bottomImage():
     write.line((0, 0, 600, 0), fill = 0)
     write.line((0, 150, 0, 0), fill = 0)
 
-    plot = Image.open(os.path.join(imgdir, "plot.png"))
-
-    bImage.paste(plot, (0, 0))
+    try:
+        plot = Image.open(os.path.join(imgdir, "plot.png"))
+        bImage.paste(plot, (0, 0))
+    except:
+        pass
+    
 
     qr = qrGenerator()
 

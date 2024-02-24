@@ -121,37 +121,10 @@ class JetsonNano:
     def digital_read(self, pin):
         return self.GPIO.input(self.BUSY_PIN)
 
-    def delay_ms(self, delaytime):
-        time.sleep(delaytime / 1000.0)
-
-    def spi_writebyte(self, data):
-        self.SPI.SYSFS_software_spi_transfer(data[0])
-
-    def module_init(self):
-        self.GPIO.setmode(self.GPIO.BCM)
-        self.GPIO.setwarnings(False)
-        self.GPIO.setup(self.RST_PIN, self.GPIO.OUT)
-        self.GPIO.setup(self.DC_PIN, self.GPIO.OUT)
-        self.GPIO.setup(self.CS_PIN, self.GPIO.OUT)
-        self.GPIO.setup(self.BUSY_PIN, self.GPIO.IN)
-        self.SPI.SYSFS_software_spi_begin()
-        return 0
-
-    def module_exit(self):
-        logger.debug("spi end")
-        self.SPI.SYSFS_software_spi_end()
-
-        logger.debug("close 5V, Module enters 0 power consumption ...")
-        self.GPIO.output(self.RST_PIN, 0)
-        self.GPIO.output(self.DC_PIN, 0)
-
-        self.GPIO.cleanup()
 
 
 if os.path.exists('/sys/bus/platform/drivers/gpiomem-bcm2835'):
     implementation = RaspberryPi()
-else:
-    implementation = JetsonNano()
 
 for func in [x for x in dir(implementation) if not x.startswith('_')]:
     setattr(sys.modules[__name__], func, getattr(implementation, func))

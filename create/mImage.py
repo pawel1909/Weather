@@ -31,8 +31,8 @@ def mainImage(currentWeather: Weather_obj, wList: list, text: str, state: int):
     #     containter.paste(x, (0, 0))
     #     return containter
     
-    containter.paste(left, (0, 60))
     containter.paste(special, (0, 340))
+    containter.paste(left, (0, 60))
     containter.paste(top, (0, 0))
     containter.paste(right, (180, 80))
     containter.paste(bottom, (150, 350))
